@@ -1,0 +1,74 @@
+{
+  "profiles/mhp3rd/host/audio/audio_sink.hpp": {
+    "sha256": "8567e9ef3cb07f9eba8fcd1a2bb24931dc1cea549d46b3af46cb9b3dacc45fbc",
+    "reason": "AudioSink method declarations have no standalone LLVM line map. Their out-of-line implementations and actual SDL output-gain behavior are covered by renderer/audio regression tests and remain subject to the normal diff gate."
+  },
+  "profiles/mhp3rd/host/settings/settings.hpp": {
+    "sha256": "5c4e07eff5e34d66d6b0ba4bdc2d611c83f969dc3a08a164fb9859376ab7bdfd",
+    "reason": "Reviewed declarations and aggregate member defaults, including independent PSP and Action touch layouts; no standalone function body is exempted. Settings round trips, legacy defaults and invalid touch placements are tested. Executable implementations remain subject to the normal diff gate."
+  },
+  "profiles/mhp3rd/host/perf/perf_overlay.hpp": {
+    "sha256": "48d8fd2b2912a0231e0d8293bf0f9027a091235c0bae95d68845a6d4a058bc79",
+    "reason": "Reviewed constants and function declarations only; no executable function body is exempted. Compact text, bounds, scaling and renderer captures are tested in the out-of-line implementations, which remain subject to the normal diff gate."
+  },
+  "profiles/mhp3rd/host/app_paths.hpp": {
+    "sha256": "17ac7c479a32e74dc2b1e80cce27db2e2d601cfdac31926a25006d5528eba4c9",
+    "reason": "Function declarations and aggregate fields have no standalone LLVM line map; corresponding implementation mappings remain subject to the normal diff gate."
+  },
+  "profiles/mhp3rd/host/mods/mhp3rd_mods.hpp": {
+    "sha256": "f9167beb23f644a3eea5f4fc88b3e88343a792a921812510760a6cf23fa83c89",
+    "reason": "Function declarations and aggregate fields have no standalone LLVM line map. Reviewed additions expose a bounded archive-read declaration and result fields only; executable implementation and archive/runtime regressions remain subject to the normal diff gate."
+  },
+  "profiles/mhp3rd/host/platform/android_documents.hpp": {
+    "sha256": "ed456c89390a6e945a44d2f1b98923ee963b84250a78003e6533a404fb9714e5",
+    "reason": "Reviewed function/class declarations and aggregate member defaults only; no standalone function body is exempted. Folder staging, JNI transport and menu implementations remain subject to the normal diff gate."
+  },
+  "profiles/mhp3rd/host/ui/translation_screen.hpp": {
+    "sha256": "be45fd2586182b46dfe5f08a84e0564c357ffca14dafc5e7e2932124ee5faa85",
+    "reason": "Function declarations and aggregate fields have no standalone LLVM line map; corresponding implementation mappings remain subject to the normal diff gate."
+  },
+  "profiles/mhp3rd/host/fonts/game_font.hpp": {
+    "sha256": "aaa3f12152c49d0a5ffc87518df4620cffb4bec45ee1420ee29ffb822820c83e",
+    "reason": "Constants, aggregate fields and function declarations have no standalone LLVM line map; the Cyrillic classification implementation and tests remain subject to the normal diff gate. This header change documents the traced layout only."
+  },
+  "profiles/mhp3rd/host/platform/android_jni.hpp": {
+    "sha256": "37be29a64d74990724f832706414997bca88ccf277b1b4e35f4e0132510ea91d",
+    "reason": "Reviewed function/class declarations and aggregate member defaults only; no standalone function body is exempted. Folder staging, JNI transport and menu implementations remain subject to the normal diff gate."
+  },
+  "profiles/mhp3rd/host/ui/mods_screen.hpp": {
+    "sha256": "f81cd59c91e5f83e627bcf0327a5535404da18c0202fbc8162b7b3dd68f69b35",
+    "reason": "Reviewed function declarations only; this edit updates a documented menu label. No executable body is exempted. Mod menu implementations and renderer/UI regressions remain subject to the normal diff gate."
+  },
+  "profiles/mhp3rd/host/ui/touch_editor.hpp": {
+    "sha256": "43177edc1f48321d457195b078ca235bcabe3a2d8dac69ac525937bfaca6ca5d",
+    "reason": "Reviewed comments and function declarations only; the change documents the shared PSP and Action editor. No executable body is exempted. Editor implementations and renderer/UI regression tests remain subject to the normal diff gate."
+  },
+  "profiles/mhp3rd/host/ui/touch_overlay.hpp": {
+    "sha256": "ffe6474d8dc66c959278ab6cd50ce3534c4189f89090b3c4a16746bcd838baf9",
+    "reason": "Reviewed include and drawing-function declaration only; ElementLook remains an aggregate. No executable body is exempted. PSP and Action drawing implementations and renderer/UI regression tests remain subject to the normal diff gate."
+  },
+  "profiles/mhp3rd/host/ui/layered_armor_screen.hpp": {
+    "sha256": "c154c41c563ca09adbb76ecfe0376247dcf7c2867af6100b1b5a51602573ef96",
+    "reason": "Reviewed function declarations only; these edits document the move from Mods to QoL. No executable body is exempted. Layered armor menu implementations and renderer/UI regressions remain subject to the normal diff gate."
+  },
+  "profiles/mhp3rd/host/platform/android_display.hpp": {
+    "sha256": "90e5ee597fbc6e1b5f91702c3fc588813a1065be286e1c415b2ec82107336843",
+    "reason": "Reviewed opaque type and function declarations only; no executable code is exempted. The runtime API adapter and frame-rate policy remain subject to normal diff coverage."
+  },
+  "profiles/mhp3rd/host/camera/game_camera.hpp": {
+    "sha256": "2b329a57dc0aa3f48ceba6814475efc1fee3f0f2cf2ab0e51f85f3ee024e6c24",
+    "reason": "Reviewed include and read-only follow-point declaration only; no executable header body changed. Valid, stale, nonfinite and foreign-runtime cases are exercised in analog_camera_tests.cpp; implementation mappings keep the normal diff gate."
+  },
+  "profiles/mhp3rd/host/debug/game_state.hpp": {
+    "sha256": "932f726319efbccfc87c967d20ddacfd227cb91d3c1d077555d1637379038d14",
+    "reason": "Reviewed optional observed-actor parameter declaration only. Dynamic actor coordinates and loaded files, invalid roles and unchanged guest memory are verified in debug_tools_tests.cpp; no executable body is exempted."
+  },
+  "profiles/mhp3rd/host/ui/input_script.hpp": {
+    "sha256": "68d61cf3e90826eaa3ca013eb65f166436a81b4777cd9cf83c45878ef97f5e94",
+    "reason": "Reviewed documentation-only additions for physical scancodes and owned window lifecycle commands. Parsing, input/release behavior and rejection cases are tested in the out-of-line implementation; no executable header body changed."
+  },
+  "profiles/mhp3rd/host/gpu/vulkan_renderer.hpp": {
+    "sha256": "da8d09b0d501f8f5436b9da4d3f64c4e6ae395c816a49949bd0ff37f7a485382",
+    "reason": "Reviewed activation-consumer declaration and comments only; no executable header body changed. This header has no standalone LLVM line map in the native inventory. On/Auto activation, inactive states, one-shot consumption, UI display and expiry are tested in renderer/UI regressions; out-of-line renderer and menu implementations remain subject to the normal diff gate."
+  }
+}

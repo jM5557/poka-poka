@@ -1,0 +1,193 @@
+> [!NOTE]
+> **Poka-Poka:** это README проекта [Yakumo](https://github.com/TeamGDB/Yakumo) на русском языке, унаследованный без изменений. Он описывает Yakumo и *Monster Hunter Portable 3rd HD Ver.*, а не Poka-Poka. Poka-Poka основан на Yakumo, но предназначен только для *Monster Hunter Diary: Poka Poka Felyne Village G* и не связан с TeamGDB. Документация Poka-Poka на английском: [README.md](README.md).
+>
+> *This is Yakumo's Russian README, inherited unchanged; it describes Yakumo, not Poka-Poka. See [README.md](README.md).*
+
+<p align="center"><img src="docs/images/logo.svg" alt="Yakumo" width="720"></p>
+
+<p align="center"><a href="README.md">English</a> · <b>Русский</b> · <a href="README.es.md">Español</a></p>
+
+<p align="center">
+  <a href="https://github.com/TeamGDB/Yakumo/releases/latest"><img src="https://img.shields.io/github/v/release/TeamGDB/Yakumo?style=flat-square&amp;label=release&amp;labelColor=2a1a22&amp;color=b98335" alt="Latest stable release"></a>
+  <a href="https://github.com/TeamGDB/Yakumo/actions/workflows/tests.yml?query=branch%3Amain"><img src="https://img.shields.io/github/actions/workflow/status/TeamGDB/Yakumo/tests.yml?branch=main&amp;event=push&amp;style=flat-square&amp;label=tests&amp;labelColor=2a1a22" alt="Unit tests on main"></a>
+  <a href="docs/COVERAGE.md"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FTeamGDB%2FYakumo%2Fcoverage-badges%2Fcoverage.json&amp;style=flat-square&amp;cacheSeconds=300" alt="Coverage of measured source lines on main; see scope and unmeasured files"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-b98335?style=flat-square&amp;labelColor=2a1a22" alt="License: MIT"></a>
+  <a href="docs/COMPATIBILITY.md"><img src="https://img.shields.io/badge/platforms-Windows%20%C2%B7%20Linux%20%C2%B7%20macOS%20%C2%B7%20Android-b98335?style=flat-square&amp;labelColor=2a1a22" alt="Platforms: Windows, Linux, macOS and Android"></a>
+  <a href="https://github.com/TeamGDB/Yakumo/stargazers"><img src="https://img.shields.io/github/stars/TeamGDB/Yakumo?style=flat-square&amp;label=stars&amp;labelColor=2a1a22&amp;color=b98335" alt="GitHub stars"></a>
+  <a href="https://github.com/TeamGDB/Yakumo/releases"><img src="https://img.shields.io/github/downloads/TeamGDB/Yakumo/total?style=flat-square&amp;label=downloads&amp;labelColor=2a1a22&amp;color=b98335" alt="GitHub release asset downloads across all releases"></a>
+</p>
+
+<p align="center">
+  <a href="https://discord.gg/YNrDs92caY"><img src="https://img.shields.io/badge/Discord-Join%20community-b98335?style=flat-square&amp;logo=discord&amp;logoColor=white&amp;labelColor=2a1a22" alt="Join the TeamGDB Discord community"></a>
+</p>
+
+# Yakumo
+
+Нативный порт **Monster Hunter Portable 3rd HD Ver.**, сделанный статической рекомпиляцией: код игры для PSP заранее переводится в C++ и компилируется под ваш компьютер, а затем работает поверх заново написанной системной среды PSP. Это не эмулятор — в его основе нет ни интерпретатора, ни JIT, — и не декомпиляция.
+
+> **Проект не содержит никаких ресурсов игры.** Чтобы установить или собрать Yakumo, нужны файлы из вашей собственной законно полученной копии Monster Hunter Portable 3rd HD Ver. (`NPJB-40001`).
+
+> Это перевод. Если он расходится с [английским README](README.md), правильным считается английский. Подробная документация — на английском.
+
+## Правовая оговорка
+
+**Yakumo** — независимый проект с открытым исходным кодом. Он не связан с CAPCOM, Sony или их аффилированными лицами, не уполномочен, не спонсируется и не одобрен ими.
+
+Monster Hunter, Monster Hunter Portable 3rd HD Ver., CAPCOM, PlayStation, PSP и все связанные с ними товарные знаки, игровые ресурсы, изображения, звук, персонажи и иная интеллектуальная собственность принадлежат их законным владельцам.
+
+**Yakumo** не содержит никаких ресурсов игры и оригинальных файлов игры: ни образа диска, ни копии исполняемого файла или данных игры, ни текстур, моделей, звука и видео из неё. Чтобы установить или собрать **Yakumo**, нужны файлы из вашей собственной законно полученной копии Monster Hunter Portable 3rd HD Ver.; установщик проверяет эту копию и принимает только оригинальный выпуск.
+
+Чтобы пользоваться **Yakumo**, нужно предоставить необходимые файлы из собственной законно приобретённой копии Monster Hunter Portable 3rd HD Ver. для PlayStation 3.
+
+Пользователи сами несут ответственность за то, чтобы получать, снимать дамп, извлекать и использовать свою копию игры в соответствии с законами, действующими в их юрисдикции.
+
+**Yakumo** не поддерживает, не предоставляет, не ссылается на нелицензионные или пиратские копии игры и не поощряет их использование.
+
+Любые упоминания оригинальной игры и её товарных знаков служат исключительно для идентификации, совместимости и взаимодействия.
+
+Снимки экрана и иные изображения оригинальной игры могут использоваться только для документирования или демонстрации возможностей **Yakumo**. Весь изображённый сторонний игровой контент остаётся собственностью его правообладателей.
+
+Лицензия **Yakumo** распространяется только на собственный оригинальный код и материалы проекта и не даёт никаких прав на интеллектуальную собственность третьих лиц.
+
+**Yakumo** предоставляет программу, а не игру. Законно приобретённую копию нужно предоставить самостоятельно.
+
+## Статус: играбельно
+
+Можно загрузить сохранение, перенесённое с PSP, или начать новую игру, ходить на охоту вместе с другими игроками и сохранять прогресс — с музыкой, видеороликами и освещением. Логика игры по-прежнему работает на исходных 30 кадрах в секунду; необязательная интерполяция выводит 45, 60, 90, 120 кадров или подстраивается под частоту монитора, не меняя скорость игры. Загрузки короче, чем на PSP: пока игра беззвучно загружается, она идёт быстрее реального времени (*Fast loading*, включено по умолчанию).
+
+| Работает | Нет или с проблемами |
+| --- | --- |
+| Загрузка, меню, создание персонажа, деревня и охотничьи локации | |
+| Сохранения в формате самой PSP, включая сохранения и загружаемые квесты, перенесённые с PSP; импорт, экспорт и резервные копии из меню | Кривые поверхности (#10); диалоги сохранения пока ничего не рисуют (#33) |
+| Графика на Vulkan: модели, анимация, текстуры, прозрачность, освещение и туман; настраиваемое внутреннее разрешение, любое соотношение сторон окна и интерполяция кадров | |
+| HD-текстуры в формате PPSSPP с установкой из меню или вручную в каталог данных | |
+| Моды в формате сообщества (mhp3reload): замена и патчи файлов, управление из меню (см. [README профиля](profiles/mhp3rd/README.md#mods)) | Код-моды (#81) |
+| Звуковые эффекты, потоковая музыка и видеоролики | |
+| Полностью переназначаемое управление клавиатурой и мышью; геймпады с аналоговой камерой и прицеливанием на правом стике, пресеты управления и назначение сочетаний кнопок | |
+| Внутриигровое меню Yakumo, первоначальная настройка, файловый браузер и экранная клавиатура с управлением геймпадом, клавиатурой или мышью | |
+| Все 355 оверлеев кода рекомпилированы | |
+| Мультиплеер: через ad hoc-серверы, которыми пользуются игроки на PSP, или с хостом прямо из игры в локальной сети или через VPN | |
+
+Проверено на macOS (Apple Silicon, Vulkan через MoltenVK), на Steam Deck в игровом режиме — на родном Vulkan и со встроенным управлением — и на Windows 11 со сборкой MSVC.
+
+Состояние каждой части игры на каждой платформе — в [`docs/COMPATIBILITY.md`](docs/COMPATIBILITY.md).
+
+## Играть
+
+### ⬇️ [Скачать последний стабильный релиз](https://github.com/TeamGDB/Yakumo/releases/latest)
+
+Готовому релизу нужен только ваш образ диска. Выберите файл для своего устройства в разделе **Assets** релиза, запустите его и укажите образ в первоначальной настройке: она проверит образ, подготовит из него игру и сохранит всё в каталоге пользователя. Обновление сохраняет настройки и сейвы.
+
+| Устройство | Файл | Установка |
+| --- | --- | --- |
+| **Windows** (x86-64) | `yakumo-…-windows-x86_64.zip` | Распакуйте куда угодно и запустите `Yakumo.exe`. Данные хранятся в `%APPDATA%`. Начиная с v0.7.0 есть ещё `…-portable.zip`, который хранит всё (настройки, сохранения, подготовленную игру) в папке `data` рядом с `Yakumo.exe`, например на флешке; подробнее — в разделе [Portable copy](profiles/mhp3rd/README.md#portable-copy). |
+| **Steam Deck и Linux** | `yakumo-…-linux-x86_64.flatpak` (или переносимый `.tar.gz`) | Установите Flatpak, запустите Yakumo и добавьте его в Steam для игрового режима. [`docs/LINUX.md`](docs/LINUX.md) (на английском) описывает установку, первый запуск, игровой режим, где лежат сохранения, обновление и удаление. |
+| **Android** (64 бита, Android 10+, Vulkan 1.1) | `yakumo-…-android-arm64.apk` | Откройте APK на телефоне и разрешите установку. При первом запуске приложение берёт ваш `.iso` через системный выбор файлов Android и копирует его к себе (около 1,3 ГБ сверх 0,8 ГБ самого приложения). Сенсорное управление рисуется поверх игры; геймпады тоже работают. |
+| **macOS** (Apple Silicon, macOS 13+) | `yakumo-…-macos-arm64.dmg` | Откройте образ диска и перетащите Yakumo в «Программы». Оно не нотаризовано Apple, поэтому macOS один раз попросит его разрешить. [`docs/MACOS.md`](docs/MACOS.md) (на английском) описывает установку, первый запуск, где лежат сохранения, обновление и удаление. |
+
+**Тестовые сборки.** На [странице релизов](https://github.com/TeamGDB/Yakumo/releases) есть и тестовые сборки с пометкой *(test)* (старые — *(unstable)*), они опубликованы как pre-release. В них самые свежие изменения и могут быть новые баги: ставьте их, только если хотите помочь с тестированием. Если просто хотите играть — берите последний стабильный релиз выше.
+
+## Переводы сообщества
+
+Доступно в **Yakumo v0.7.5 и новее**.
+
+Переводы текста игры поддерживают их авторы; файлы скачиваются отдельно. Совместимость и обновления описаны в README каждого проекта.
+
+В каталоге размещаются ссылки только на публичные репозитории GitHub и загрузки с GitHub (файлы в репозитории или Releases).
+
+| Язык | Автор | Версия | Проект | Скачать |
+| --- | --- | --- | --- | --- |
+| Португальский (Бразилия) | [devdouglasonofre](https://github.com/devdouglasonofre) | **V1** | [mhp3rd-yakumo-ptbr](https://github.com/devdouglasonofre/mhp3rd-yakumo-ptbr) | [Последний релиз](https://github.com/devdouglasonofre/mhp3rd-yakumo-ptbr/releases/latest) |
+| Русский | [MHunterG](https://github.com/MHunterG) | **Draft** | [mhp3rd-yakumo-ru](https://github.com/MHunterG/mhp3rd-yakumo-ru) | [Последний релиз](https://github.com/MHunterG/mhp3rd-yakumo-ru/releases/latest) |
+
+Скачайте `.lang`, откройте **System → Text → Import Translation…**, выберите импортированный язык в **Game Text Language** и перезапустите игру. Подробнее — в [документации по переводу текста](docs/TEXT_TRANSLATION.md) (на английском).
+
+## Требования
+
+Сборка из исходников — полноценный способ играть. Для неё нужны:
+
+- Собственная копия игры (см. выше)
+- CMake 3.20 или новее, Ninja и компилятор C++20
+- Python 3
+- SDL3, Vulkan и `glslangValidator`
+- `make` и компилятор C на macOS и Linux: сборка сама собирает FFmpeg для музыки и видеороликов. На Windows для него ничего устанавливать не нужно
+- Несколько гигабайт свободной памяти для сборки: рекомпилированный код большой
+
+## С чего начать
+
+Коротко:
+
+1. Подготовьте исполняемый файл игры из своего образа диска: один раз соберите `Yakumo` без рекомпилированного кода и запустите его с `--install /путь/к/образу.iso`. Сторонний инструмент расшифровки не нужен. Затем подключите образ и этот файл к профилю скриптом `profiles/mhp3rd/scripts/prepare_game.sh`.
+2. Выполните конфигурацию, сгенерируйте рекомпилированный код скриптом `profiles/mhp3rd/scripts/generate.sh` и соберите `Yakumo`.
+3. Рекомпилируйте оверлеи кода скриптом `profiles/mhp3rd/scripts/build_overlays.sh` (в первый раз около 40 минут; прерванная сборка продолжается с места остановки).
+4. Запустите `out/mhp3rd/bin/Yakumo`.
+
+Полная инструкция со всеми настройками — в [`profiles/mhp3rd/README.md`](profiles/mhp3rd/README.md). Сборка на всех платформах, включая Windows, сколько длится каждый этап и как работать с кодом без полной пересборки: [`docs/BUILDING.md`](docs/BUILDING.md).
+
+## Управление
+
+На геймпаде кнопки там, где их ждёшь: на геймпаде PlayStation круг подтверждает, а крест возвращает назад, как и написано в подсказках игры, а правый стик управляет камерой и прицеливанием. Пресеты управления (Default, Modern с атаками на триггерах, Left-handed, Classic keyboard и свои собственные) охватывают все действия, и любое из них можно назначить на одну кнопку или на сочетание вроде L1 + ○. Управление клавиатурой и мышью полноценное: по умолчанию WASD отвечает за движение, мышь — за камеру, а её кнопки — за атаки. Полные таблицы — в [README профиля](profiles/mhp3rd/README.md#running).
+
+Esc или оба стика, нажатые вместе (L3+R3), открывают собственное меню Yakumo. В нём находятся настройки видео, звука, управления, сети и сохранений, включая соотношение сторон, частоту кадров, внутреннее разрешение и импорт HD-текстур. При первом запуске игра настраивается из вашего образа диска в том же окне, и для этого достаточно одного геймпада.
+
+## Планы
+
+- Android на настоящих телефонах: проверка на устройствах, графические драйверы и производительность ([#127](https://github.com/TeamGDB/Yakumo/issues/127), [#17](https://github.com/TeamGDB/Yakumo/issues/17))
+- Единый визуальный стиль экранов первоначальной настройки, меню и оверлеев Yakumo ([#33](https://github.com/TeamGDB/Yakumo/issues/33))
+- Сенсорное управление игрой и меню, а также камерой и прицеливанием
+
+## Как это устроено
+
+Исполняемый файл анализируется, и каждая инструкция его кода превращается в C++, который компилируется в программу. Кроме того, игра во время работы загружает 355 оверлеев кода в несколько общих областей памяти. Каждый оверлей рекомпилируется в отдельную библиотеку, и когда игра загружает оверлей, соответствующая библиотека подставляется между кадрами. Код, который не попал в рекомпилированный набор, исполняет интерпретатор, так что игра не останавливается — просто в этих местах работает медленнее.
+
+Вокруг этого кода — заново написанная системная среда PSP: ядро с потоками, семафорами, флагами событий и таймерами; чтение диска прямо из образа; рендерер графического движка PSP на Vulkan; программное микширование голосов для звука; ввод через SDL3.
+
+Модель исполнения описана в [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md), формат архива игры — в [`docs/DATA_BIN.md`](docs/DATA_BIN.md). Дымовой тест и порядок отправки результатов — в [`docs/TESTING.md`](docs/TESTING.md).
+
+## Устройство репозитория
+
+```text
+include/psprecomp/   Фреймворк: интерфейсы рантайма, памяти, состояния Allegrex
+src/                 Фреймворк: загрузка ELF, декодер, рантайм, интерпретатор
+tools/               Фреймворк: анализатор и генератор кода на C++
+tests/               Регрессионные тесты фреймворка
+configs/             Данные NID для PSP и общие примеры
+profiles/mhp3rd/     Всё, что относится к этой игре: хост, ядро, рендерер,
+                     звук, ввод, конфигурация и скрипты сборки
+docs/                Архитектура, формат архива, руководство по профилям, правила
+```
+
+Сам рекомпилированный код генерируется локально из вашей копии игры и никогда не попадает в репозиторий.
+
+## Основа — PSPRecomp
+
+**Yakumo** построен на [PSPRecomp](https://github.com/jessicanataliagta/PSPRecomp) — фреймворке статической рекомпиляции программ для PSP. Фреймворк не привязан к конкретной игре и собирается отдельно:
+
+```bash
+cmake -S . -B out/framework -DPSPRECOMP_PROFILE=""
+cmake --build out/framework --config Release
+ctest --test-dir out/framework -C Release --output-on-failure
+```
+
+Как поддержать другую игру — в [`docs/PROFILE_GUIDE.md`](docs/PROFILE_GUIDE.md). Правила о самостоятельно написанном коде и стороннем исходном коде — в [`docs/SOURCE_PROVENANCE.md`](docs/SOURCE_PROVENANCE.md).
+
+## Авторы
+
+- [@MHunterG](https://github.com/MHunterG)
+- [@mojitosunrise](https://github.com/mojitosunrise)
+
+## Благодарности
+
+- [PSPRecomp](https://github.com/jessicanataliagta/PSPRecomp) — фреймворк рекомпиляции, на котором построен проект
+- [SDL3](https://www.libsdl.org/) — окно, ввод и вывод звука
+- [FFmpeg](https://ffmpeg.org/) — декодирование музыки и видео
+- [Vulkan](https://www.vulkan.org/) и [MoltenVK](https://github.com/KhronosGroup/MoltenVK) — отрисовка
+- [Dear ImGui](https://github.com/ocornut/imgui) — меню и экраны первоначальной настройки Yakumo
+- [tiny-AES-c](https://github.com/kokke/tiny-AES-c) — установщик и поддержка сохранений PSP
+- [stb_truetype](https://github.com/nothings/stb) — растеризация шрифтов
+- [svanheulen/mhef](https://github.com/svanheulen/mhef) — описание формата архива игры от сообщества
+- [Cinzel](https://github.com/NDISCOVER/Cinzel) и [Shippori Mincho](https://github.com/fontdasu/ShipporiMincho) — шрифты логотипа, под лицензией SIL Open Font License
+
+## Лицензия
+
+Репозиторий распространяется под лицензией MIT, см. [`LICENSE`](LICENSE). Лицензии сторонних файлов находятся рядом с ними, а их происхождение перечислено в [`docs/SOURCE_PROVENANCE.md`](docs/SOURCE_PROVENANCE.md).

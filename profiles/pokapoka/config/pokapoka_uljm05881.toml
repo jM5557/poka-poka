@@ -1,0 +1,31 @@
+# Identity of the release this profile supports. Documentation only: the
+# host's copy is host/install/game_identity.hpp.
+[game]
+title = "Monster Hunter Diary: Poka Poka Felyne Village G"
+disc_id = "ULJM05881"
+disc_version = "1.01"
+psp_system_version = "6.39"
+
+[executable]
+path_on_disc = "PSP_GAME/USRDIR/MHi2_Master.prx"   # plain ELF (PRX), not encrypted
+sha256 = "3af4813ee99f79d93dded2cad96dba13823d1dce3dd66e8d47318bec6f047416"
+module = "mhi_game_module"
+module_version = "1.1"
+load_base = 0x08804000
+entry = 0x08A999D4
+ram = "32 MiB"
+imports = 280          # across 30 libraries
+functions = 22541      # found by psp_analyze
+relocations = 139677
+
+[loader]
+# SYSDIR/EBOOT.BIN, "mhi_parent_module", ~PSP tag 0xD91613F0. It only loads
+# and starts MHi2_Master.prx and MHiBrowser_Master.prx; the host starts the
+# game module directly. MHiBrowser_Master.prx (the online DLC browser,
+# sceHttp/sceSsl) is not loaded.
+path_on_disc = "PSP_GAME/SYSDIR/EBOOT.BIN"
+
+[data]
+archive = ["PSP_GAME/USRDIR/POKAPOKA.FAT", "PSP_GAME/USRDIR/POKAPOKA.BHD", "PSP_GAME/USRDIR/POKAPOKA.BND"]
+install = "PSP_GAME/INSDIR/POKAPOKA.DBN -> ms0:/PSP/SAVEDATA/ULJM05881DATAINSTALL/"
+movies = "PSP_GAME/USRDIR/movie/MOV*.pmf"

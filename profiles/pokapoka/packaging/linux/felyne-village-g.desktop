@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Felyne Village G
+GenericName=Native PSP port
+Comment=Monster Hunter Diary: Poka Poka Felyne Village G, recompiled from your own copy
+Exec=Yakumo
+Icon=felyne-village-g
+Terminal=false
+Categories=Game;

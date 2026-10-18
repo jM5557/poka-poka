@@ -1,0 +1,143 @@
+{
+  "id": "09",
+  "title": "Platform lifecycle",
+  "checks": [
+    {
+      "id": "focus-resume",
+      "seconds": 90,
+      "steps": [
+        {
+          "action": "fixture",
+          "name": "load-character"
+        },
+        {
+          "action": "snapshot",
+          "as": "loaded",
+          "until": {
+            "loaded": true,
+            "on_quest": false
+          }
+        },
+        {
+          "action": "snapshot",
+          "as": "before"
+        },
+        {
+          "action": "fixture",
+          "name": "os-background-return"
+        },
+        {
+          "action": "snapshot",
+          "as": "returned",
+          "until": {
+            "focus": true
+          }
+        },
+        {
+          "action": "assert",
+          "actual": "returned.clock_us",
+          "op": "gt",
+          "expected": {
+            "from": "before.clock_us"
+          }
+        },
+        {
+          "action": "assert",
+          "actual": "returned.pad_buttons",
+          "op": "eq",
+          "expected": 0
+        },
+        {
+          "action": "capture",
+          "as": "returned"
+        },
+        {
+          "action": "image",
+          "image": "returned",
+          "as": "returned-content"
+        }
+      ]
+    },
+    {
+      "id": "audio-controller-change",
+      "seconds": 90,
+      "steps": [
+        {
+          "action": "fixture",
+          "name": "audio-capture-controller-reconnect"
+        },
+        {
+          "action": "snapshot",
+          "as": "reconnected"
+        },
+        {
+          "action": "assert",
+          "actual": "reconnected.audio_device",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "action": "assert",
+          "actual": "reconnected.pad_buttons",
+          "op": "eq",
+          "expected": 0
+        },
+        {
+          "action": "audio",
+          "as": "pcm"
+        },
+        {
+          "action": "assert",
+          "actual": "pcm.nonzero_samples",
+          "op": "gt",
+          "expected": 0
+        },
+        {
+          "action": "assert",
+          "actual": "pcm.clipped_fraction",
+          "op": "lt",
+          "expected": 0.01
+        }
+      ]
+    },
+    {
+      "id": "android-surface-display",
+      "seconds": 90,
+      "steps": [
+        {
+          "action": "snapshot",
+          "as": "before"
+        },
+        {
+          "action": "fixture",
+          "name": "android-rotation-surface-display"
+        },
+        {
+          "action": "log",
+          "pattern": "\\[render\\] surface made again after the app returned"
+        },
+        {
+          "action": "snapshot",
+          "as": "after"
+        },
+        {
+          "action": "assert",
+          "actual": "after.clock_us",
+          "op": "gt",
+          "expected": {
+            "from": "before.clock_us"
+          }
+        },
+        {
+          "action": "capture",
+          "as": "surface"
+        },
+        {
+          "action": "image",
+          "image": "surface",
+          "as": "surface-content"
+        }
+      ]
+    }
+  ]
+}

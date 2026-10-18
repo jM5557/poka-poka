@@ -1,0 +1,75 @@
+{
+  "id": "10",
+  "title": "Performance",
+  "checks": [
+    {
+      "id": "village-route",
+      "seconds": 600,
+      "steps": [
+        {
+          "action": "measure",
+          "profile": "village-route",
+          "as": "timing"
+        },
+        {
+          "action": "assert",
+          "actual": "timing.comparison.threshold_enabled",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "action": "assert",
+          "actual": "timing.comparison.metrics.speed_percent.candidate",
+          "op": "ge",
+          "expected": 99
+        }
+      ]
+    },
+    {
+      "id": "quest-loading-route",
+      "seconds": 600,
+      "steps": [
+        {
+          "action": "measure",
+          "profile": "quest-loading-route",
+          "as": "timing"
+        },
+        {
+          "action": "assert",
+          "actual": "timing.comparison.threshold_enabled",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "action": "assert",
+          "actual": "timing.comparison.metrics.speed_percent.candidate",
+          "op": "ge",
+          "expected": 99
+        }
+      ]
+    },
+    {
+      "id": "resolution-interpolation",
+      "seconds": 600,
+      "steps": [
+        {
+          "action": "measure",
+          "profile": "resolution-interpolation",
+          "as": "timing"
+        },
+        {
+          "action": "assert",
+          "actual": "timing.comparison.threshold_enabled",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "action": "assert",
+          "actual": "timing.comparison.metrics.speed_percent.candidate",
+          "op": "ge",
+          "expected": 99
+        }
+      ]
+    }
+  ]
+}

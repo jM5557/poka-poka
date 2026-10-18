@@ -1,0 +1,276 @@
+{
+  "id": "05",
+  "title": "Japanese and patched translation inputs",
+  "checks": [
+    {
+      "id": "japanese-main-menu-fields",
+      "seconds": 120,
+      "steps": [
+        {
+          "action": "variant",
+          "name": "japanese-translated",
+          "as": "variant"
+        },
+        {
+          "action": "fixture",
+          "name": "load-character"
+        },
+        {
+          "action": "text_fields",
+          "name": "japanese-main-menu-fields",
+          "as": "first"
+        },
+        {
+          "action": "assert",
+          "actual": "variant.variant",
+          "op": "eq",
+          "expected": "japanese-translated"
+        }
+      ]
+    },
+    {
+      "id": "japanese-dialogue",
+      "seconds": 120,
+      "steps": [
+        {
+          "action": "variant",
+          "name": "japanese-translated",
+          "as": "variant"
+        },
+        {
+          "action": "fixture",
+          "name": "load-character"
+        },
+        {
+          "action": "fixture",
+          "name": "normal-village-dialogue"
+        },
+        {
+          "action": "text_fields",
+          "name": "japanese-dialogue",
+          "as": "first"
+        },
+        {
+          "action": "assert",
+          "actual": "variant.variant",
+          "op": "eq",
+          "expected": "japanese-translated"
+        }
+      ]
+    },
+    {
+      "id": "japanese-catalog-reopen",
+      "seconds": 180,
+      "steps": [
+        {
+          "action": "variant",
+          "name": "japanese-translated",
+          "as": "variant"
+        },
+        {
+          "action": "fixture",
+          "name": "load-character"
+        },
+        {
+          "action": "fixture",
+          "name": "normal-village-counter-open"
+        },
+        {
+          "action": "text_fields",
+          "name": "japanese-catalog-reopen",
+          "as": "first"
+        },
+        {
+          "action": "fixture",
+          "name": "normal-counter-change-star-reopen"
+        },
+        {
+          "action": "text_fields",
+          "name": "japanese-catalog-reopen",
+          "as": "reopened"
+        },
+        {
+          "action": "assert",
+          "actual": "variant.variant",
+          "op": "eq",
+          "expected": "japanese-translated"
+        }
+      ]
+    },
+    {
+      "id": "japanese-active-original-fallback",
+      "seconds": 180,
+      "steps": [
+        {
+          "action": "variant",
+          "name": "japanese-translated",
+          "as": "variant"
+        },
+        {
+          "action": "fixture",
+          "name": "offline-quest-204"
+        },
+        {
+          "action": "text_fields",
+          "name": "japanese-active-quest",
+          "as": "translated"
+        },
+        {
+          "action": "variant",
+          "name": "japanese-original",
+          "as": "original-variant"
+        },
+        {
+          "action": "fixture",
+          "name": "offline-quest-204"
+        },
+        {
+          "action": "text_fields",
+          "name": "japanese-original-quest",
+          "as": "original"
+        },
+        {
+          "action": "assert",
+          "actual": "original-variant.language",
+          "op": "eq",
+          "expected": "original"
+        }
+      ]
+    },
+    {
+      "id": "patched-main-menu-fields",
+      "seconds": 120,
+      "steps": [
+        {
+          "action": "variant",
+          "name": "patched-translated",
+          "as": "variant"
+        },
+        {
+          "action": "fixture",
+          "name": "load-character"
+        },
+        {
+          "action": "text_fields",
+          "name": "patched-main-menu-fields",
+          "as": "first"
+        },
+        {
+          "action": "assert",
+          "actual": "variant.variant",
+          "op": "eq",
+          "expected": "patched-translated"
+        }
+      ]
+    },
+    {
+      "id": "patched-dialogue",
+      "seconds": 120,
+      "steps": [
+        {
+          "action": "variant",
+          "name": "patched-translated",
+          "as": "variant"
+        },
+        {
+          "action": "fixture",
+          "name": "load-character"
+        },
+        {
+          "action": "fixture",
+          "name": "normal-village-dialogue"
+        },
+        {
+          "action": "text_fields",
+          "name": "patched-dialogue",
+          "as": "first"
+        },
+        {
+          "action": "assert",
+          "actual": "variant.variant",
+          "op": "eq",
+          "expected": "patched-translated"
+        }
+      ]
+    },
+    {
+      "id": "patched-catalog-reopen",
+      "seconds": 180,
+      "steps": [
+        {
+          "action": "variant",
+          "name": "patched-translated",
+          "as": "variant"
+        },
+        {
+          "action": "fixture",
+          "name": "load-character"
+        },
+        {
+          "action": "fixture",
+          "name": "normal-village-counter-open"
+        },
+        {
+          "action": "text_fields",
+          "name": "patched-catalog-reopen",
+          "as": "first"
+        },
+        {
+          "action": "fixture",
+          "name": "normal-counter-change-star-reopen"
+        },
+        {
+          "action": "text_fields",
+          "name": "patched-catalog-reopen",
+          "as": "reopened"
+        },
+        {
+          "action": "assert",
+          "actual": "variant.variant",
+          "op": "eq",
+          "expected": "patched-translated"
+        }
+      ]
+    },
+    {
+      "id": "patched-active-original-fallback",
+      "seconds": 180,
+      "steps": [
+        {
+          "action": "variant",
+          "name": "patched-translated",
+          "as": "variant"
+        },
+        {
+          "action": "fixture",
+          "name": "offline-quest-204"
+        },
+        {
+          "action": "text_fields",
+          "name": "patched-active-quest",
+          "as": "translated"
+        },
+        {
+          "action": "variant",
+          "name": "patched-original",
+          "as": "original-variant"
+        },
+        {
+          "action": "fixture",
+          "name": "offline-quest-204"
+        },
+        {
+          "action": "text_fields",
+          "name": "patched-original-quest",
+          "as": "original"
+        },
+        {
+          "action": "assert",
+          "actual": "original-variant.language",
+          "op": "eq",
+          "expected": "original"
+        }
+      ]
+    }
+  ]
+}

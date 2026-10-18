@@ -1,0 +1,258 @@
+{
+  "id": "08",
+  "title": "Two-peer multiplayer",
+  "checks": [
+    {
+      "id": "host-join-state",
+      "seconds": 180,
+      "steps": [
+        {
+          "action": "peer_start",
+          "as": "ownership"
+        },
+        {
+          "action": "fixture",
+          "name": "load-character"
+        },
+        {
+          "action": "snapshot",
+          "as": "before"
+        },
+        {
+          "action": "peer_fixture",
+          "name": "load-character",
+          "as": "peer-loaded"
+        },
+        {
+          "action": "fixture",
+          "name": "normal-online-hall-01"
+        },
+        {
+          "action": "peer_fixture",
+          "name": "normal-online-hall-01",
+          "as": "peer-hall"
+        },
+        {
+          "action": "snapshot",
+          "as": "joined",
+          "until": {
+            "online": true,
+            "peer_count": 1,
+            "map": "P_v00a01d.ovl"
+          }
+        },
+        {
+          "action": "peer_snapshot",
+          "as": "peer",
+          "until": {
+            "online": true,
+            "peer_count": 1,
+            "map": "P_v00a01d.ovl"
+          }
+        },
+        {
+          "action": "assert",
+          "actual": "joined.peer_received",
+          "op": "gt",
+          "expected": 0
+        },
+        {
+          "action": "assert",
+          "actual": "peer.peer_received",
+          "op": "gt",
+          "expected": 0
+        },
+        {
+          "action": "assert",
+          "actual": "joined.hunter_armor.1",
+          "op": "eq",
+          "expected": {
+            "from": "peer.hunter_armor.0"
+          }
+        },
+        {
+          "action": "assert",
+          "actual": "joined.hunter_records.1",
+          "op": "ne",
+          "expected": {
+            "from": "before.hunter_records.1"
+          }
+        },
+        {
+          "action": "assert",
+          "actual": "joined.quest_cheats",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "action": "assert",
+          "actual": "peer.quest_cheats",
+          "op": "eq",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "id": "quest-state-exchange",
+      "seconds": 180,
+      "steps": [
+        {
+          "action": "snapshot",
+          "as": "before"
+        },
+        {
+          "action": "peer_snapshot",
+          "as": "peer-before"
+        },
+        {
+          "action": "fixture",
+          "name": "normal-multiplayer-counter-gate"
+        },
+        {
+          "action": "peer_fixture",
+          "name": "normal-multiplayer-ready-gate",
+          "as": "peer-departure"
+        },
+        {
+          "action": "snapshot",
+          "as": "quest",
+          "until": {
+            "on_quest": true,
+            "fast_loading": false
+          }
+        },
+        {
+          "action": "peer_snapshot",
+          "as": "peer-quest",
+          "until": {
+            "on_quest": true,
+            "fast_loading": false
+          }
+        },
+        {
+          "action": "assert",
+          "actual": "quest.active_id",
+          "op": "eq",
+          "expected": {
+            "parameter": "multiplayer-quest-id"
+          }
+        },
+        {
+          "action": "assert",
+          "actual": "peer-quest.active_id",
+          "op": "eq",
+          "expected": {
+            "parameter": "multiplayer-quest-id"
+          }
+        },
+        {
+          "action": "assert",
+          "actual": "quest.peer_received",
+          "op": "gt",
+          "expected": {
+            "from": "before.peer_received"
+          }
+        },
+        {
+          "action": "assert",
+          "actual": "peer-quest.peer_received",
+          "op": "gt",
+          "expected": {
+            "from": "peer-before.peer_received"
+          }
+        },
+        {
+          "action": "assert",
+          "actual": "quest.fast_forward",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "action": "assert",
+          "actual": "peer-quest.fast_forward",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "action": "assert",
+          "actual": "quest.quest_cheats",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "action": "assert",
+          "actual": "peer-quest.quest_cheats",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "action": "snapshot",
+          "as": "later"
+        },
+        {
+          "action": "assert",
+          "actual": "later.quest_ticks",
+          "op": "lt",
+          "expected": {
+            "from": "quest.quest_ticks"
+          }
+        }
+      ]
+    },
+    {
+      "id": "disconnect",
+      "seconds": 120,
+      "steps": [
+        {
+          "action": "fixture",
+          "name": "normal-multiplayer-return"
+        },
+        {
+          "action": "peer_fixture",
+          "name": "normal-online-hall-leave",
+          "as": "peer-left"
+        },
+        {
+          "action": "peer_snapshot",
+          "as": "peer-offline",
+          "until": {
+            "online": false
+          }
+        },
+        {
+          "action": "snapshot",
+          "as": "alone",
+          "until": {
+            "peer_count": 0
+          }
+        },
+        {
+          "action": "fixture",
+          "name": "normal-online-hall-leave"
+        },
+        {
+          "action": "snapshot",
+          "as": "offline",
+          "until": {
+            "online": false
+          }
+        },
+        {
+          "action": "assert",
+          "actual": "offline.online",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "action": "assert",
+          "actual": "offline.quest_cheats",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "action": "peer_close"
+        }
+      ]
+    }
+  ]
+}
